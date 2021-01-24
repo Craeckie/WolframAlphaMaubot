@@ -35,8 +35,8 @@ class WolframAlphaPlugin(Plugin):
             return None
         gif = await resp.read()
 
-        filename = f"{search_term}.png" if len(search_term) > 0 else "wolfram.png"
-        uri = await self.client.upload_media(gif, mime_type='image/png', filename=filename)
+        filename = f"{search_term}.png" if len(search_term) > 0 else "wolfram.gif"
+        uri = await self.client.upload_media(gif, mime_type='image/gif', filename=filename)
 
         await self.client.send_image(evt.room_id, url=uri, file_name=filename, info=ImageInfo(
                         mimetype='image/png'
